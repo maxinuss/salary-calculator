@@ -1,5 +1,5 @@
 import fs from "fs";
-const HOUR_RATES = JSON.parse(fs.readFileSync('hour_rate.json').toString());
+const HOUR_RATES = JSON.parse(fs.readFileSync(`${process.cwd()}/src/hour_rate.json`).toString());
 
 export const MINUTES_IN_AN_HOUR = 60;
 export const MINUTES_IN_A_DAY = 24 * MINUTES_IN_AN_HOUR;
@@ -37,8 +37,8 @@ function getDayRate(day, rates, {from, to}) {
   let total = 0;
   const workedFrom = parseInt(from.replace(':', ''), 10);
   const workedTo = parseInt(to.replace(':', ''), 10);
-
   const minutesRange = getRangeOfWorkedMinutesOnATheDay(workedFrom, workedTo);
+
   for (let i = minutesRange.from; i < minutesRange.to; i++) {
     total += MINUTES_RATES[day][i];
   }
@@ -59,4 +59,6 @@ export function calculateSalary(employee) {
   }, 0);
 
   console.log(`The amount to pay ${employee.name} is: ${total} USD`);
+
+  return total;
 }

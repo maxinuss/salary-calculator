@@ -1,0 +1,15 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testMatch": ["<rootDir>/test/**/*.test.{ts,js}"],
+  "transformIgnorePatterns": [
+    "<rootDir>/node_modules/"
+  ],
+  "coverageDirectory": "./test/coverage",
+  "coverageThreshold": {
+    "global": {
+      "lines": 80
+    }
+  }
+}

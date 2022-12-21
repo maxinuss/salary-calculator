@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const EMPLOYEES_WORK_LOG = fs.readFileSync('employees_work_log.txt').toString();
+const EMPLOYEES_WORK_LOG = fs.readFileSync(`${process.cwd()}/src/employees_work_log.txt`).toString();
 
 export function createObjectFromWorkLogInput() {
   return EMPLOYEES_WORK_LOG.split(/\r?\n/).map(workLog => {
